@@ -1,0 +1,44 @@
+<nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+            <!-- User Type کے مطابق مختلف menu items -->
+            {% if user.userprofile.user_type == 'super_admin' %}
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'admin_dashboard' %}">
+                        📊 Admin Dashboard
+                    </a>
+                </li>
+            {% elif user.userprofile.user_type == 'teacher' %}
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'teacher_dashboard' %}">
+                        👨‍🏫 Teacher Dashboard
+                    </a>
+                </li>
+            {% elif user.userprofile.user_type == 'brand_leader' %}
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'brand_dashboard' %}">
+                        🏢 Brand Dashboard
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'student_dashboard' %}">
+                        👨‍🎓 Student Dashboard
+                    </a>
+                </li>
+            {% endif %}
+            
+            <!-- Common Links -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'products' %}">
+                    📦 Products
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'orders' %}">
+                    🛒 Orders
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

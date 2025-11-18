@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Welcome to Student E-Commerce Platform</h1>
+        <p>This is where students can sell their products online.</p>
+        
+        {% if user.is_authenticated %}
+            <div class="alert alert-success">
+                You are logged in as <strong>{{ user.username }}</strong>
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+                Please <a href="{% url 'login' %}">login</a> to access your dashboard.
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

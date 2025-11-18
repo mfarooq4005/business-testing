@@ -1,0 +1,13 @@
+<div class="navbar-nav ms-auto">
+    {% if user.is_authenticated %}
+        <span class="navbar-text me-3">
+            Welcome, {{ user.username }}!
+        </span>
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+        <!-- Temporary ke liye register link comment karein -->
+        <!-- <a class="nav-link" href="{% url 'register' %}">Register</a> -->
+    {% endif %}
+</div>
+
